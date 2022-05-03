@@ -321,7 +321,12 @@ function kpf(){
     kubectl --namespace $KUBE_NS port-forward pod/$pod_name $@
 }
 
-export NODE_IP=${$(cat ~/.kube/config | grep server | head -n 1 | cut -d / -f 3 | cut -d : -f 1):-"NO_KUBE_CONFIG"}
+
+if [ -f ~/.kube/config ]; then
+    export NODE_IP=$(cat ~/.kube/config | grep server | cut -d / -f 3 | cut -d : -f 1)
+fi
+
+alias wsd="~/go/bin/wsd -url ws://localhost:8080"
 
 function decode() {
     payload=$1
@@ -334,8 +339,10 @@ function port(){
     sudo lsof -i :${1:-'pass me a port'}
 }
 
-source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
-source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+if [ -d /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk ]; then
+    source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+    source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+fi
 
 function howtoimport() {
     gref $1 | grep import | cut -d : -f 3
