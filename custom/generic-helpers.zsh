@@ -267,47 +267,47 @@ clone-app() {
 source <(kubectl completion zsh)
 # source <(minikube completion zsh)
 
-function k() {
+k() {
     echo "searching namespace: $KUBE_NS"
     kubectl -n $KUBE_NS $@
 }
 
-function kdp() {
+kdp() {
     echo "searching namespace: $KUBE_NS"
     kubectl -n $KUBE_NS describe pods $(get-pod $1)
 }
 
-function kgp() {
+kgp() {
     echo "searching namespace: $KUBE_NS"
     kubectl -n $KUBE_NS get pods $@
 }
 
-function kdelp() {
+kdelp() {
     echo "searching namespace: $KUBE_NS"
     kubectl -n $KUBE_NS delete pod $(get-pod $1)
 }
 
-function get-pod(){
+get-pod(){
     kubectl get pods -n $KUBE_NS | grep $1 | tr ' ' '\n' | head -n1
 }
 
-function kl(){
+kl(){
     echo "searching namespace: $KUBE_NS"
     pod_name=$(get-pod $1)
     echo "found pod: $pod_name"
     shift
     kubectl -n "$KUBE_NS" logs -f $pod_name -c "$APPLICATION_CONTAINER" $@
 }
-function kless(){
+kless(){
     kl $@ | less
 }
-function klnf(){
+klnf(){
     echo "searching namespace: $KUBE_NS"
     pod_name=$(get-pod $1)
     shift
     kubectl -n "$KUBE_NS" logs $pod_name "$APPLICATION_CONTAINER" $@
 }
-function katt(){
+katt(){
     pod_name=$(get-pod $1)
     echo "searching namespace: $KUBE_NS"
     echo "found pod: $pod_name"
@@ -315,7 +315,7 @@ function katt(){
     kubectl exec -it --namespace $KUBE_NS $pod_name -c $APPLICATION_CONTAINER sh $@
 }
 
-function kpf(){
+kpf(){
     pod_name=$(get-pod $1)
     shift
     kubectl --namespace $KUBE_NS port-forward pod/$pod_name $@
@@ -328,14 +328,14 @@ fi
 
 alias wsd="~/go/bin/wsd -url ws://localhost:8080"
 
-function decode() {
+decode() {
     payload=$1
     echo "$payload" | base64 --decode | jq
 }
 
 alias ports='netstat -tulan'
 
-function port(){
+port(){
     sudo lsof -i :${1:-'pass me a port'}
 }
 
@@ -344,12 +344,21 @@ if [ -d /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk ]; then
     source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 fi
 
-function howtoimport() {
+howtoimport() {
     gref $1 | grep import | cut -d : -f 3
 }
 
-function crt() {
+crt() {
     certPath=$1
     shift
     openssl x509 -in $certPath -text -noout $@
 }
+
+# https://www.hhyu.org/posts/emacs_clientserver/
+# http://www.rockhoppertech.com/blog/emacs-daemon-on-macos/
+emacsnw() {
+    /Applications/Emacs.app/Contents/MacOS/bin/emacsclient –create-frame –socket-name=$(lsof -c Emacs | grep server | tr -s ' '| cut -d ' ' -f8)
+}
+
+export VISUAL="emacsnw"
+export EDITOR="emacsnw"
