@@ -22,8 +22,12 @@ popd
 ```
 curl -O https://raw.githubusercontent.com/MartinSeeler/iterm2-material-design/master/material-design-colors.itermcolors
 ```
+![Screenshot 2022-05-04 at 10 27 53](https://user-images.githubusercontent.com/6035754/166666532-c332491b-bb5a-44fc-9661-107b9807c599.png)
 
 https://apple.stackexchange.com/questions/332523/key-binding-in-iterm2?noredirect=1#comment427316_332523
+![Screenshot 2022-05-04 at 10 24 20](https://user-images.githubusercontent.com/6035754/166666501-d8f20b49-11ee-4478-9f37-242e6cc1a5f8.png)
+
+![Screenshot 2022-05-04 at 10 27 37](https://user-images.githubusercontent.com/6035754/166666515-93b2d697-8486-4956-948b-bd0a2e84e8c9.png)
 
 ### emacs daemon on start
 
