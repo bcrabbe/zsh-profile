@@ -51,3 +51,10 @@ echo '<?xml version="1.0" encoding="UTF-8"?>                                    
 </dict>
 </plist>' > ~/Library/LaunchAgents/gnu.emacs.daemon.plist
 ```
+
+### git config
+
+```
+git config --global merge.conflictstyle diff3
+git config core.editor /Applications/Emacs.app/Contents/MacOS/bin/emacsclient –socket-name=$(lsof -c Emacs | grep server | tr -s ' '| cut -d ' ' -f8)
+```
