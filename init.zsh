@@ -74,7 +74,6 @@ plugins=(
     git
     zsh-autosuggestions
     zsh-history-substring-search
-    zsh-syntax-highlighting
     git-flow
     yarn
     sbt
@@ -82,6 +81,7 @@ plugins=(
     zsh-z
     zsh-better-npm-completion
     emacs
+    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
