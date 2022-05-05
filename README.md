@@ -29,6 +29,8 @@ https://apple.stackexchange.com/questions/332523/key-binding-in-iterm2?noredirec
 
 ![Screenshot 2022-05-04 at 10 27 37](https://user-images.githubusercontent.com/6035754/166666515-93b2d697-8486-4956-948b-bd0a2e84e8c9.png)
 
+![Screenshot 2022-05-05 at 09 54 54](https://user-images.githubusercontent.com/6035754/166894120-e36ae77a-a3f3-4394-a345-09221afbe96f.png)
+
 ### emacs daemon on start
 
 ```
