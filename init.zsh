@@ -13,10 +13,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 autoload -U +X bashcompinit && bashcompinit
-"complete" -o nospace -C /usr/local/bin/vault vault
-
 autoload zmv
-complete -o nospace -C /usr/local/bin/vault vault
+
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 70 '<dict><key>enabled</key><false/></dict>'
 
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
