@@ -1,12 +1,10 @@
 export ZSH="$HOME/.oh-my-zsh"
 
-
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 HYPHEN_INSENSITIVE="true"
 
 ZSH_CUSTOM="$HOME/zsh-profile/custom"
-
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -17,12 +15,7 @@ autoload zmv
 
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 70 '<dict><key>enabled</key><false/></dict>'
 
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
-export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 export GPG_TTY=$(tty)
-export PATH="/usr/local/opt/openjdk@8/bin:$PATH"
-export CPPFLAGS="-I/usr/local/opt/openjdk@8/include"
-export JAVA_HOME="/usr/local/opt/openjdk@8/bin"
 
 plugins=(
     git
