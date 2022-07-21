@@ -104,16 +104,17 @@ consumer-grp() {
 }
 
 gref() {
-    grep --color -nri --exclude-dir=node_modules --exclude-dir=target --exclude-dir=dist --exclude-dir=pre-build --exclude-dir=project --exclude-dir=tests --exclude-dir=dev-e $1 *
+    gre $@ *
 }
 
 gre() {
-    grep --color -nri --exclude-dir=node_modules --exclude-dir=target --exclude-dir=pre-build --exclude-dir=project --exclude-dir=tests --exclude-dir=dev-e $1 $2
+    grep --color -nri --exclude-dir=node_modules --exclude-dir=target --exclude-dir=pre-build --exclude-dir=project --exclude-dir=tests --exclude-dir=dev --exclude='*.~undo-tree~' -e $@
 }
 alias kafka-up="exec ~/Software/localKafka/brokers.sh & "
 
 #generates a rudimentary tags file for scala programs
-alias sctags="/usr/local/Cellar/ctags/5.8_1/bin/ctags -R -e"
+alias sctags="/usr/local/Cellar/ctags/5.8_2/bin/ctags -R -e"
+
 # requires:
 # ~/.ctags:
 # --langdef=Scala
@@ -264,8 +265,11 @@ clone-app() {
     etags src/*.erl
 }
 
-source <(kubectl completion zsh)
-# source <(minikube completion zsh)
+exists() { type -t "$1" > /dev/null 2>&1; }
+
+if exists kubectl; then
+    source <(kubectl completion zsh)
+fi
 
 k() {
     echo "searching namespace: $KUBE_NS"

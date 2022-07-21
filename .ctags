@@ -5,12 +5,19 @@
 --exclude=node_modules
 --exclude=build
 --exclude=dist
+--exclude=bazel-gemini
+--exclude=bazel-bin
+--exclude=bazel-out
+--exclude=.intellij-generated-sources
+--exclude='*.jar'
 
 --langdef=Scala
 --langmap=Scala:.scala
 --regex-Scala=/^[^\*\/]*class[ \t]*([a-zA-Z0-9_]+)/\1/c,classes/
 --regex-Scala=/^[^\*\/]*object[ \t]*([a-zA-Z0-9_]+)/\1/o,objects/
 --regex-scala=/^[^\*\/]*trait[ \t]*([a-zA-Z0-9_]+)/\1/t,traits/
+--regex-scala=/^[^\*\/]*extends[ \t]*([a-zA-Z0-9_]+)/\1/t,extends/
+--regex-scala=/^[^\*\/]*with[ \t]*([a-zA-Z0-9_]+)/\1/t,withs/
 --regex-Scala=/^[^\*\/]*case[ \t]*class[ \t]*([a-zA-Z0-9_]+)/\1/m,case-classes/
 --regex-Scala=/^[^\*\/]*abstract[ \t]*class[ \t]*([a-zA-Z0-9_]+)/\1/a,abstract-classes/
 --regex-Scala=/^[^\*\/]*def[ \t]*([a-zA-Z0-9_]+)[ \t]*.*[:=]/\1/f,functions/
