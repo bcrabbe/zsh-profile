@@ -173,6 +173,9 @@ docker-attach() {
 
 alias gloga="glog --all"
 
+gcob() {
+   git checkout $(git branch --sort=-committerdate -vv | fzf)
+}
 git-delete-tag() {
     echo "git tag -d $1
     git push origin :refs/tags/$1"
@@ -366,3 +369,7 @@ emacsnw() {
 
 export VISUAL="emacsnw"
 export EDITOR="emacsnw"
+
+create-android-emulator () {
+    $HOME/Library/Android/sdk/emulator/emulator @Pixel_4_API_30
+}

@@ -1,11 +1,14 @@
-### caps lock => ctrl
-![Screenshot 2023-08-03 at 18 51 10](https://github.com/bcrabbe/zsh-profile/assets/6035754/187b8c0a-2390-46bb-8996-1b3070c6abe9)
+## installation
 
 ```
 brew install --cask iterm2
+
 brew install zsh
+
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 git clone https://github.com/powerline/fonts.git && ./fonts/install.sh
+
 echo 'source ~/zsh-profile/init.zsh' > ~/.zshrc
 ```
 
@@ -20,6 +23,8 @@ git clone https://github.com/zsh-users/zsh-history-substring-search.git
 git clone https://github.com/lukechilds/zsh-better-npm-completion.git
 popd
 ```
+### caps lock => ctrl
+![Screenshot 2023-08-03 at 18 51 10](https://github.com/bcrabbe/zsh-profile/assets/6035754/187b8c0a-2390-46bb-8996-1b3070c6abe9)
 
 ### iterm2 config
 ```
