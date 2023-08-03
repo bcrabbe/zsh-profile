@@ -1,3 +1,6 @@
+### caps lock => ctrl
+![Screenshot 2023-08-03 at 18 51 10](https://github.com/bcrabbe/zsh-profile/assets/6035754/187b8c0a-2390-46bb-8996-1b3070c6abe9)
+
 ```
 brew install --cask iterm2
 brew install zsh
