@@ -305,21 +305,24 @@ kl(){
     shift
     kubectl -n "$KUBE_NS" logs -f $pod_name -c "$APPLICATION_CONTAINER" $@
 }
+
 kless(){
     kl $@ | less
 }
+
 klnf(){
     echo "searching namespace: $KUBE_NS"
     pod_name=$(get-pod $1)
     shift
     kubectl -n "$KUBE_NS" logs $pod_name "$APPLICATION_CONTAINER" $@
 }
+
 katt(){
     pod_name=$(get-pod $1)
     echo "searching namespace: $KUBE_NS"
     echo "found pod: $pod_name"
     shift
-    kubectl exec -it --namespace $KUBE_NS $pod_name -c $APPLICATION_CONTAINER sh $@
+    kubectl exec -it --namespace $KUBE_NS $pod_name -c $APPLICATION_CONTAINER -- /bin/bash $@
 }
 
 kpf(){
